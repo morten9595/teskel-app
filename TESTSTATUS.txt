@@ -21,3 +21,4 @@ Pulse guidance update:
 - Log dialog and calendar export carry the same guidance.
 - Race warm-up/cool-down show I-1; race itself is not assigned a fixed HR zone.
 - Engine regression: 4455 cases PASS.
+ Trigger Vercel deployment
