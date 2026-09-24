@@ -1,0 +1,11 @@
+Terskel 2.0 - oppdatering
+Dato: 24.09.2026
+
+Last opp filene i denne mappen til roten av det eksisterende GitHub-repoet teskel-app.
+La GitHub erstatte filer med samme navn, og commit direkte til main.
+Vercel publiserer automatisk til samme produksjonsadresse.
+
+Viktig:
+- index.html bruker samme localStorage-nokkel som eksisterende produksjonsapp (terskel.app.v1), slik at lokale brukerdata beholdes på samme nettleser/enhet.
+- Eldre planer kan åpnes, men appen ber deg lage planen på nytt for å bruke nye obligatoriske felt og ny planmotor fullt ut.
+- sw.js har ny cacheversjon og aktiveres umiddelbart, slik at installert mobilapp lettere får den nye versjonen.
