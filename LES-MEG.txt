@@ -1,0 +1,114 @@
+TERSKEL - en målbasert løpeplanlegger
+Første testversjon, 23. september 2026
+
+KOM I GANG PÅ PC
+Last ned terskel.html og prøv å åpne filen i Edge eller Chrome. Du trenger
+ikke installere noe eller opprette en konto. Organisasjonens nettleserregler kan
+begrense lokale HTML-filer. I nettsidepakken er index.html den samme appen.
+
+Velg et tidsmål på 5 km, 10 km eller halvmaraton, eller en blokk med jevn trening.
+Fyll inn måltid og konkurransedato, dersom du har et tidsmål. Bekreft nivå,
+vanlig ukesmengde, terskelvane og hvilke dager du kan trene. Trykk deretter
+«Lag min treningsplan». Trykk på en økt for å se drag, pauser og intensitet.
+
+Tidligere oppgitte opplysninger er lagt inn som utgangspunkt: ca. 38 minutter
+på 10 km (januar 2026), ca. 50-60 km/uke (juli 2026), og rundt seks økter.
+Måltid og konkurransedato er tomme. 55 km, en bestemt fordeling av dager og en
+tidsramme på 90 minutter er redigerbare startverdier. Verken aktuell form,
+laktatgrense eller terskelvaner er fastslått av appen.
+
+SKJERMBILDER
+En eventuell medfølgende forhåndsvisning viser et EKSEMPEL: 10 km på 37:00,
+20. desember 2026. Dette er ikke et vedtatt mål for deg. Eksempelet har ingen
+loggede økter. Det følger ikke med oppdiktet treningshistorikk i appen.
+
+DETTE KAN DU BRUKE
+- Mål- og kalenderstyrt planlegging. Konkurransen kan være allerede i startuka eller opptil 26 uker fram.
+- Start på valgfri ukedag, med kort startuke i stedet for å presse inn en full uke.
+- Valgfri oppsummering av km, kontrollerte økter og langtur som allerede er gjort i startuka.
+- Tilpasning til mengde, tilgjengelige dager, tid og tidligere terskelvaner.
+- Konkret oppvarming, dragtid, pauser, nedjogg og veiledende fart.
+- Skille mellom planlagt og gjennomført trening.
+- Manuell logg med distanse, tid, opplevd innsats og dagsform.
+- Valgfrie målinger av laktat, puls og fart per drag.
+- Enkel ukesjekk med forslag om reduksjon eller pause. Endringer må godkjennes.
+- Egen terskelfart-seksjon med automatisk anslag fra representativ konkurransetid.
+- Lokal analyse av Strava-CSV og TCX-filer for å foreslå kontrollert terskelfart.
+- Mengdeoversikt, fartskalkulator, sikkerhetskopi og kalenderfil for valgt uke.
+
+MODELLEN
+Planen er en uavhengig tilpasning inspirert av Bakkens norske modell, ikke et
+program skrevet eller godkjent av Bakken. Det brukes maksimalt to kontrollerte
+enkeltøkter i uka. Elitevolum, dobbel terskel og fulle eliteuker kopieres ikke.
+Halvmaratontilpasningen og de numeriske reglene er egne programmeringsvalg.
+
+Les «Modellen» i appen. Der finner du kildelenker, formlene for fartsanslag,
+reglene for mengde og ukesjekk, samt skillet mellom kildegrunnlag og appvalg.
+Den ønskede sluttiden bestemmer ikke treningsfarten. Fartsanslag fastslår ikke
+fysiologisk terskel. Oppgitt laktatgrense skal komme fra individuell avklaring.
+
+Dette er ikke medisinsk oppfølging, en validert trener eller en garanti for
+framgang. Appen kan ikke avgjøre om det er forsvarlig å trene ved sykdom eller
+smerter. Ingen GPS eller direkte Garmin-/Strava-synkronisering er innebygd ennå.
+Strava-CSV og TCX kan analyseres lokalt. Direkte Strava OAuth krever at appen
+publiseres med en liten sikker backend; Garmin FIT-import er heller ikke aktiv
+i denne lokale versjonen. Bakgrunnsvarsler, maraton, rehabilitering og
+automatisk AI-coaching er ikke innebygd.
+
+DATA OG SIKKERHETSKOPI
+Data lagres lokalt i nettleserens localStorage, med nøkkelen terskel.app.v1.
+Appen sender ikke profilen, treningsloggen eller importerte aktivitetsfiler til en server.
+CSV/TCX analyseres i nettleseren og originalfilene lagres ikke av appen. Ingen nettfonter,
+statistikkverktøy eller tredjepartsbiblioteker hentes for å kjøre appen.
+Eksterne kildesider åpnes bare dersom du følger en lenke.
+
+Ta jevnlig «Sikkerhetskopi». JSON-filen inneholder profil, plan og logg; behandle
+den privat. Ved import må du bekrefte at lokal tilstand erstattes. Import fletter
+ikke loggfiler. En ny treningsplan bevarer loggede økter, men erstatter ukeplanen.
+
+Lokale file:-adresser har nettleseravhengig lagring. Flytting eller omdøping av
+HTML-filen, bytte av nettleser, privat modus og sletting av nettleserdata kan
+påvirke tilgangen til lagringen. Bruk samme fil/nettadresse og samme nettleser,
+og oppbevar en sikkerhetskopi. Native localStorage-egenskaper er beskrevet her:
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+BRUK PÅ TELEFON
+Appen er mobiltilpasset, men har foreløpig ingen publisert nettadresse.
+For stabil bruk på telefon: publiser nettsidepakken som et statisk nettsted
+på HTTPS. Legg index.html, manifest.webmanifest, sw.js og ikonfilene i samme
+mappe. Åpne nettstedet i mobilnettleseren; funksjonen for å legge til nettstedet
+på hjemskjermen avhenger av telefon og nettleser.
+
+Service worker og manifest er vedlagt for lokal mellomlagring av appens skall.
+Dette er klargjort, ikke en bekreftet installasjon på fysisk iPhone/Android.
+Første besøk på en publisert adresse trenger nett. Nettleseren kan slette
+mellomlagring; en sikkerhetskopi er fortsatt nødvendig. Det finnes ingen
+synkronisering mellom telefon og PC.
+
+KALENDERFIL
+«Til kalender» eksporterer den valgte uken som .ics med heldagshendelser.
+Hvile ekskluderes. Eksporten oppretter ikke automatisk hendelser i en koblet
+kalender. Senere planendringer oppdaterer ikke tidligere importerte hendelser.
+
+KILDEKODE
+index.html inneholder hele appen: CSS, planmotor og grensesnitt. De separate
+filene engine.js, app.js, style.css og shell.html gjør videre redigering enklere.
+Kjør build.py med Python og Pillow for å bygge HTML og ikoner på nytt.
+Test av planregler: node test_engine.cjs. Ingen pakkeinstallasjon trengs for å
+bruke den ferdige HTML-filen. Ingen hemmeligheter eller API-nøkler er nødvendige for den lokale versjonen. Direkte Strava-synk vil senere kreve registrert Strava-app og sikker serverlagring av klienthemmeligheten.
+
+TESTSTATUS
+Planmotoren er testet i Node mot 4 455 kombinasjoner av dager, mengde,
+terskelvaner og distanse, pluss egne tester av datovalidering, avstand mellom
+kvalitetsdager, pause, reduksjon, summer og uendret treningsfart ved nytt tidsmål.
+
+Grensesnittet er testet i Chromium ved 1440 og 390 piksler. Opprettelse av plan,
+registrering/redigering/sletting, målinger, sikkerhetskopi/import, kalenderfil,
+fartskalkulator og beskyttelse mot HTML-innsprøyting i notater er kontrollert.
+Ingen JavaScript-feil ble registrert i den gjennomførte testen.
+
+Testmiljøets administratorregler blokkerte navigasjon til lokale URL-er. Derfor
+ble HTML-en satt direkte inn i nettleseren, og Storage-API-et ble simulert i
+lagringstesten. Virkelig lagring på en fysisk enhet, installasjon fra HTTPS og
+service-workerens offlinedrift er ikke ende-til-ende-testet. De tekniske testene
+validerer programregler, ikke treningsmodellens effekt eller sikkerhet.

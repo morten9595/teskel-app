@@ -1,0 +1,23 @@
+Terskel v1.3 - teststatus
+Dato: 24.09.2026
+
+PASS
+- 4 455 kombinasjoner av treningsdager, ukesmengde, terskelvane og maaldistanse.
+- Midtuke-start og konkurranse i foerste/andre uke.
+- Langtur-regresjon: 55 km normaluke + 75 min nylig langtur gir en reell lengre tur.
+- Komprimert startuke prioriterer langtur foran terskel dersom ukebudsjettet ikke rommer begge.
+- Rolige turer paa minst 20 min planlegges i femminuttersblokker; kilometer er et anslag.
+- Olympiatoppens I-1 til I-5 beregnes fra HFmaks og er verifisert mot eksempelet HFmaks 195.
+- Rolige turer merkes I-1; kontrollerte intervaller merkes I-3 som pulsstotte.
+- Maks tid per oekt respekteres i kombinasjonstestene.
+- Maks to kvalitetsinnslag per uke og minst to dager mellom terskeloekter i testmatrisen.
+
+Merk
+Dette er tekniske tester av regelmotoren, ikke validering av treningsfysiologisk effekt eller individuell sikkerhet.
+
+Pulse guidance update:
+- Recommended bpm displayed on every planned easy/long/threshold workout when max HR is set.
+- Threshold details show I-1 for warm-up/cool-down and I-3 for work intervals.
+- Log dialog and calendar export carry the same guidance.
+- Race warm-up/cool-down show I-1; race itself is not assigned a fixed HR zone.
+- Engine regression: 4455 cases PASS.
